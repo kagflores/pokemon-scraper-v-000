@@ -2,7 +2,7 @@ class Pokemon
   require 'pry'
   attr_accessor :name, :id, :type, :db, :hp
 
-  def initialize(id:, name:, type:, db:)
+  def initialize(id:, name:, type:, hp: nil, db:)
     @id = id
     @name = name
     @type = type
@@ -28,7 +28,7 @@ class Pokemon
     SQL
 
     pokemon = db.execute(sql, id).flatten
-    Pokemon.new(id: pokemon[0], name: pokemon[1], type: pokemon[2], db: db)
+    Pokemon.new(id: pokemon[0], name: pokemon[1], type: pokemon[2],hp: pokemon[3] db: db)
   end
 
   def alter_hp(new_hp, db)
